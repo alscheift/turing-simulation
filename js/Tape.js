@@ -1,6 +1,6 @@
 class Tape {
     constructor() {
-        this.tape = ["B", "B", "C", "B", "B"];
+        this.tape = ["B", "B", "B", "B", "B"];
         this.head = 2;
     }
 
