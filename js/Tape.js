@@ -29,8 +29,8 @@ class Tape {
 
     print() {
         const tempVal = this.read();
-        this.write(`>${tempVal}<`);
-        console.log(this.tape);
+        this.write(`[${tempVal}]`);
+        console.log(this.tape.join(""));
         this.write(tempVal);
     }
 }
