@@ -65,7 +65,9 @@ class Turing {
     }
 }
 
-const a = new Turing(Addition, 2, "BB111X11BB".split(""));
-a.nextMove();
+const a = new Turing(Addition, 2, "BB00X1BB".split(""));
+while (a.isFinished === false) {
+    a.nextMove();
+}
 console.log(a.transitionDiagram);
 a.printAllTape();
