@@ -1,7 +1,7 @@
 class Tape {
-    constructor() {
-        this.tape = ["B", "B", "B", "B", "B"];
-        this.head = 2;
+    constructor(defaultTape = ["B", "B", "B", "B", "B"], defaultHead = 2) {
+        this.tape = defaultTape;
+        this.head = defaultHead;
     }
 
     write(value) {
