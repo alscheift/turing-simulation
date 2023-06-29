@@ -1,5 +1,29 @@
 import OOB from "../OperationObjectBuilder.js";
 
+const Builder = new OOB(
+    `
+    [q0]0B/00,RR[q0];
+    [q0]1B/11,RR[q0];
+
+    [q0]XB/XB,RL[q1];
+
+    [q1]01/0B,RL[q1];
+    [q1]10/1B,RL[q1];
+    [q1]0B/00,RR[q1];
+    [q1]1B/11,RR[q1];
+    [q1]00/00,SR[q1];
+    [q1]11/11,SR[q1];
+
+    [q1]BB/BB,SS[q2];
+    [q1]B0/B0,RS[q2];
+    [q1]B1/B1,RS[q2]
+    `
+);
+Builder.setFinalState("q2");
+
+const Addition = Builder.get();
+
+/*
 const Addition = {
     state: {
         q0: {
@@ -115,5 +139,6 @@ const Addition = {
         },
     },
 };
+*/
 
 export default Addition;
