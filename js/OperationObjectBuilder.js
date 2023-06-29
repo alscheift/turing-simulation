@@ -37,6 +37,10 @@ class OOB {
         });
     }
 
+    setFinalState(state) {
+        this.ObjectDiagram.state[state]["isFinal"] = true;
+    }
+
     get() {
         return this.ObjectDiagram;
     }
