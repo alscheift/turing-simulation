@@ -37,8 +37,13 @@ class OOB {
         });
     }
 
-    setFinalState(state) {
-        this.ObjectDiagram.state[state]["isFinal"] = true;
+    setFinalState(finalState) {
+        if (!this.ObjectDiagram.state[finalState]) {
+            this.ObjectDiagram.state[finalState] = {
+                transitions: [],
+            };
+        }
+        this.ObjectDiagram.state[finalState]["isFinal"] = true;
     }
 
     get() {
