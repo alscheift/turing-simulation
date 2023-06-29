@@ -8,7 +8,7 @@ class Turing {
     isFinished = false;
     constructor(operation, jumlahTape, firstTapeInput) {
         this.transitionDiagram = operation.state;
-        this.Tapes.push(new Tape(firstTapeInput));
+        this.Tapes.push(new Tape(firstTapeInput.split("")));
         for (let i = 1; i < jumlahTape; i++) {
             this.Tapes.push(new Tape());
         }
@@ -20,6 +20,11 @@ class Turing {
         });
     }
 
+    // return in array [tape1, tape2, ... ] =>['B', 'B', ... ]
+    readAllTape() {
+        return this.Tapes.map((tape) => tape.read());
+    }
+
     runUntilFinish() {
         while (this.isFinished === false) {
             this.nextMove();
@@ -28,7 +33,7 @@ class Turing {
 
     nextMove() {
         // Tape Saat ini misal [tape1, tape2] = ['1','B'].
-        const currentTape = this.Tapes.map((tape) => tape.read());
+        const currentTape = this.readAllTape();
 
         // Transisi saat ini, dari Operasi yang dipilih, misal q0
         const currentTransition = this.transitionDiagram[this.currentState];
@@ -43,7 +48,10 @@ class Turing {
         );
         // console.log(currentTransitionIndex + " of " + this.currentState);
         // Kalau transisi yang ditemukan adalah final, maka selesai
-        if (currentTransition.isFinal === true) {
+        if (
+            currentTransition.isFinal === true &&
+            currentTransitionIndex === -1
+        ) {
             this.isFinished = true;
             return;
         }
