@@ -1,5 +1,7 @@
 import Turing from "./Turing.js";
 import Addition from "./Operation/Addition.js";
+import Division from "./Operation/Division.js";
+import SquareRoot from "./Operation/SquareRoot.js";
 import Exponent from "./Operation/Exponent.js";
 /*
 let T = null;
@@ -74,30 +76,61 @@ e.runUntilFinish();
 e.printAllTape();
 */
 
-/*
-console.log("\nTuring Machine Division");
-console.log("\nKasus 1 (5 / 2) = 2 harusnya 11");
-const f = new Turing(Division, 3, "BB11111X11BB");
-f.runUntilFinish();
-f.printAllTape();
 
-console.log("\nKasus 2 (9 / -3) = -3 harusnya 000");
-const g = new Turing(Division, 3, "BB111111111X000BB");
-g.runUntilFinish();
-g.printAllTape();
+// console.log("\nTuring Machine Division");
+// console.log("\nKasus 1 (5 / 2) = 2 harusnya 11");
+// const f = new Turing(Division, 3, "BB11111X11BB");
+// f.runUntilFinish();
+// f.printAllTape();
 
-console.log("\nKasus 3 (0 / 3) = 0 harusnya B");
-const h = new Turing(Division, 3, "BBX111BB");
-h.runUntilFinish();
-h.printAllTape();
+// console.log("\nKasus 2 (9 / -3) = -3 harusnya 000");
+// const g = new Turing(Division, 3, "BB111111111X000BB");
+// g.runUntilFinish();
+// g.printAllTape();
 
-console.log("\nKasus 4 (0 / 0) = 0 harusnya U");
-const i = new Turing(Division, 3, "BBXBB");
-i.runUntilFinish();
-i.printAllTape();
+// console.log("\nKasus 3 (0 / 3) = 0 harusnya B");
+// const h = new Turing(Division, 3, "BBX111BB");
+// h.runUntilFinish();
+// h.printAllTape();
 
-console.log("\nKasus 5 (-10 / 2) = -5 harusnya 00000");
-const j = new Turing(Division, 3, "BB0000000000X11BB");
-j.runUntilFinish();
-j.printAllTape();
-*/
+// console.log("\nKasus 4 (0 / 0) = 0 harusnya U");
+// const i = new Turing(Division, 3, "BBXBB");
+// i.runUntilFinish();
+// i.printAllTape();
+
+// console.log("\nKasus 5 (-10 / 2) = -5 harusnya 00000");
+// const j = new Turing(Division, 3, "BB0000000000X11BB");
+// j.runUntilFinish();
+// j.printAllTape();
+
+
+console.log("\nTuring Machine Square Root");
+console.log("\nKasus 1 (4) = 2 harusnya 11");
+const k = new Turing(SquareRoot, 4, "BB1111BB");
+k.runUntilFinish();
+k.printAllTape();
+
+console.log("\nKasus 2 (9) = 3 harusnya 111");
+const l = new Turing(SquareRoot, 4, "BB111111111BB");
+l.runUntilFinish();
+l.printAllTape();
+
+console.log("\nKasus 3 (20) = 4 harusnya 1111");
+const m = new Turing(SquareRoot, 4, "BB11111111111111111111BB");
+m.runUntilFinish();
+m.printAllTape();
+
+console.log("\nKasus 4 (45) = 6 harusnya 111111");
+const n = new Turing(SquareRoot, 4, "BB11111111111111111111111111111111111111111111BB");
+n.runUntilFinish();
+n.printAllTape();
+
+console.log("\nKasus 5 (10) = 3 harusnya 111");
+const o = new Turing(SquareRoot, 4, "BB1111111111BB");
+o.runUntilFinish();
+o.printAllTape();
+
+console.log("\nKasus 6 (68) = 8 harusnya 11111111");
+const p = new Turing(SquareRoot, 4, "BB11111111111111111111111111111111111111111111111111111111111111111111BB");
+p.runUntilFinish();
+p.printAllTape();
