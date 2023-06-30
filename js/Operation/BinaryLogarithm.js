@@ -13,6 +13,7 @@ const Builder = new OOB(
     [q3]1BE/1BE,RSS[q4];
     [q4]1BE/11E,RRS[q3];
     [q3]BBE/BBE,LLS[q5];
+    [q4]BBE/BBE,LLS[q5];
     [q5]EEE/EEE,SSS[q6];
     [q6]EEB/EE1,SSL[q7];
     [q7]EEE/EEE,SSS[q8];
@@ -21,7 +22,7 @@ const Builder = new OOB(
     [q9]EEE/EEE,RSS[q10];
     [q10]1EE/1EE,RSS[q11];
     [q11]BEE/BEE,RSS[q12];
-    [q11]1EE/1EE,RRS[q13];
+    [q11]1EE/1EE,LSS[q13];
     [q13]EEE/EEE,SSS[q1];
 
 
@@ -49,10 +50,13 @@ const Builder = new OOB(
     [q9]E1E/E1E,SLS[q9];
     [q9]EBE/EBE,SLS[q9];
 
+    [q13]1EE/1EE,LSS[q13]
+
     `
 );
 
-Builder.setFinalState("q10");
+Builder.setFinalState("q12");
+console.log(Builder.get());
 
 const BinaryLogarithm = Builder.get();
 
