@@ -1,17 +1,47 @@
 import Turing from "./Turing.js";
-// import Addition from "./Operation/Addition.js";
-// import Division from "./Operation/Division.js";
-// import SquareRoot from "./Operation/SquareRoot.js";
-// import Exponent from "./Operation/Exponent.js";
-// import Factorial from "./Operation/Factorial.js";
+import Addition from "./Operation/Addition.js";
+import Division from "./Operation/Division.js";
+import SquareRoot from "./Operation/SquareRoot.js";
+import Exponent from "./Operation/Exponent.js";
+import Factorial from "./Operation/Factorial.js";
 import Subtraction from "./Operation/Subtraction.js";
 
 
-console.log("Turing Machine Subtraction");
-console.log("\nKasus 1 (-3-5) = -8 harusnya BB00000000BB");
-let T = new Turing(Subtraction, 3, "BB000X11111BB");
-T.runUntilFinish();
-T.printAllTape();
+// console.log("Turing Machine Subtraction");
+// console.log("\nKasus 1 (-3-3) = -6 harusnya BB00000000BB");
+// let T = new Turing(Subtraction, 3, "BB000X111BB");
+// T.runUntilFinish();
+// T.printAllTape();
+
+// console.log("\nKasus 2 (-3-0) = -3 harusnya BB000BB");
+// T = new Turing(Subtraction, 3, "BB000XBB");
+// T.runUntilFinish();
+// T.printAllTape();
+
+// console.log("\nKasus 3 (-0-3) = -3 harusnya BB000BB");
+// T = new Turing(Subtraction, 3, "BBX111BB");
+// T.runUntilFinish();
+// T.printAllTape();
+
+// console.log("\nKasus 4 (-3-(-3)) = 0 harusnya BBBB");
+// T = new Turing(Subtraction, 3, "BB000X000BB");
+// T.runUntilFinish();
+// T.printAllTape();
+
+// console.log("\nKasus 5 (3-(0)) = -3 harusnya BB111BB");
+// T = new Turing(Subtraction, 3, "BB111XBB");
+// T.runUntilFinish();
+// T.printAllTape();
+
+// console.log("\nKasus 6 (0-(0)) = 0 harusnya BBBB");
+// T = new Turing(Subtraction, 3, "BBXBB");
+// T.runUntilFinish();
+// T.printAllTape();
+
+// console.log("\nKasus 7 (-7-(3)) = -4 harusnya BB0000BB");
+// T = new Turing(Subtraction, 3, "BB0000000X000BB");
+// T.runUntilFinish();
+// T.printAllTape();
 
 /*
 let T = null;
