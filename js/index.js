@@ -4,44 +4,6 @@ import Division from "./Operation/Division.js";
 import SquareRoot from "./Operation/SquareRoot.js";
 import Exponent from "./Operation/Exponent.js";
 import Factorial from "./Operation/Factorial.js";
-import Subtraction from "./Operation/Subtraction.js";
-
-
-// console.log("Turing Machine Subtraction");
-// console.log("\nKasus 1 (-3-3) = -6 harusnya BB00000000BB");
-// let T = new Turing(Subtraction, 3, "BB000X111BB");
-// T.runUntilFinish();
-// T.printAllTape();
-
-// console.log("\nKasus 2 (-3-0) = -3 harusnya BB000BB");
-// T = new Turing(Subtraction, 3, "BB000XBB");
-// T.runUntilFinish();
-// T.printAllTape();
-
-// console.log("\nKasus 3 (-0-3) = -3 harusnya BB000BB");
-// T = new Turing(Subtraction, 3, "BBX111BB");
-// T.runUntilFinish();
-// T.printAllTape();
-
-// console.log("\nKasus 4 (-3-(-3)) = 0 harusnya BBBB");
-// T = new Turing(Subtraction, 3, "BB000X000BB");
-// T.runUntilFinish();
-// T.printAllTape();
-
-// console.log("\nKasus 5 (3-(0)) = -3 harusnya BB111BB");
-// T = new Turing(Subtraction, 3, "BB111XBB");
-// T.runUntilFinish();
-// T.printAllTape();
-
-// console.log("\nKasus 6 (0-(0)) = 0 harusnya BBBB");
-// T = new Turing(Subtraction, 3, "BBXBB");
-// T.runUntilFinish();
-// T.printAllTape();
-
-// console.log("\nKasus 7 (-7-(3)) = -4 harusnya BB0000BB");
-// T = new Turing(Subtraction, 3, "BB0000000X000BB");
-// T.runUntilFinish();
-// T.printAllTape();
 
 /*
 let T = null;
@@ -116,7 +78,6 @@ e.runUntilFinish();
 e.printAllTape();
 */
 
-
 // console.log("\nTuring Machine Division");
 // console.log("\nKasus 1 (5 / 2) = 2 harusnya 11");
 // const f = new Turing(Division, 3, "BB11111X11BB");
@@ -142,7 +103,6 @@ e.printAllTape();
 // const j = new Turing(Division, 3, "BB0000000000X11BB");
 // j.runUntilFinish();
 // j.printAllTape();
-
 
 // console.log("\nTuring Machine Square Root");
 // console.log("\nKasus 1 (4) = 2 harusnya 11");
@@ -175,7 +135,6 @@ e.printAllTape();
 // p.runUntilFinish();
 // p.printAllTape();
 
-
 // console.log("Turing Machine Factorial");
 // console.log("\nKasus 1 (1!) = 1 harusnya 0");
 // const factorial = new Turing(Factorial, 3, "BB01BB");
@@ -188,7 +147,8 @@ e.printAllTape();
 // factorial.runUntilFinish();
 // factorial.printAllTape();
 
-// console.log("Turing Machine Factorial");
+// /*
+console.log("Turing Machine Factorial");
 // console.log("\nKasus 3 (3!) = 6 harusnya 000000");
 // const factorial = new Turing(Factorial, 3, "BB0001BB");
 // factorial.runUntilFinish();
@@ -205,3 +165,51 @@ e.printAllTape();
 // const factorial = new Turing(Factorial, 3, "BB000001BB");
 // factorial.runUntilFinish();
 // factorial.printAllTape();
+*/
+
+let T = null;
+console.log("Turing Machine Binary Logarithm");
+
+console.log("\nKasus 1 (log2(1)) = 0 harusnya BBBB");
+T = new Turing(BinaryLogarithm, 3, "BB1BB");
+T.runUntilFinish();
+T.printAllTape();
+
+console.log("\nKasus 2 (log2(2))) = 1 harusnya BB1BB");
+T = new Turing(BinaryLogarithm, 3, "BB11BB");
+T.runUntilFinish();
+T.printAllTape();
+
+console.log("\nKasus 3 (log2(3)) = 1 harusnya BB1BB");
+T = new Turing(BinaryLogarithm, 3, "BB111BB");
+T.runUntilFinish();
+T.printAllTape();
+
+console.log("\nKasus 4 (log2(4)) = 2 harusnya BB11BB");
+T = new Turing(BinaryLogarithm, 3, "BB1111BB");
+T.runUntilFinish();
+T.printAllTape();
+
+console.log("\nKasus 5 (log2(5)) = 2 harusnya BB11BB");
+T = new Turing(BinaryLogarithm, 3, "BB11111BB");
+T.runUntilFinish();
+T.printAllTape();
+
+console.log("\nKasus 6 (log2(8)) = 3 harusnya BB111BB");
+T = new Turing(BinaryLogarithm, 3, "BB11111111BB");
+T.runUntilFinish();
+T.printAllTape();
+
+console.log("\nKasus 7 (log2(15)) = 3 harusnya BB111BB");
+T = new Turing(BinaryLogarithm, 3, "BB111111111111111BB");
+T.runUntilFinish();
+T.printAllTape();
+
+console.log("\nKasus 8 (log2(130)) = 7 harusnya BB1111111BB");
+T = new Turing(
+    BinaryLogarithm,
+    3,
+    "BB111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111BB"
+);
+T.runUntilFinish();
+T.printAllTape();
