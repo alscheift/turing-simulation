@@ -30,7 +30,7 @@ const Builder = new OOB(
     [q9]0BB/0BB,SLR[q3]
     `
 );
-console.log(Builder.get());
+
 Builder.setFinalState("q10");
 
 const Factorial = Builder.get();
