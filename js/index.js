@@ -4,6 +4,7 @@ import Turing from "./Turing.js";
 // import SquareRoot from "./Operation/SquareRoot.js";
 // import Exponent from "./Operation/Exponent.js";
 import Factorial from "./Operation/Factorial.js";
+import BinaryLogarithm from "./Operation/BinaryLogarithm.js";
 
 /*
 let T = null;
@@ -78,7 +79,6 @@ e.runUntilFinish();
 e.printAllTape();
 */
 
-
 // console.log("\nTuring Machine Division");
 // console.log("\nKasus 1 (5 / 2) = 2 harusnya 11");
 // const f = new Turing(Division, 3, "BB11111X11BB");
@@ -104,7 +104,6 @@ e.printAllTape();
 // const j = new Turing(Division, 3, "BB0000000000X11BB");
 // j.runUntilFinish();
 // j.printAllTape();
-
 
 // console.log("\nTuring Machine Square Root");
 // console.log("\nKasus 1 (4) = 2 harusnya 11");
@@ -136,7 +135,6 @@ e.printAllTape();
 // const p = new Turing(SquareRoot, 4, "BB11111111111111111111111111111111111111111111111111111111111111111111BB");
 // p.runUntilFinish();
 // p.printAllTape();
-
 
 // console.log("Turing Machine Factorial");
 // console.log("\nKasus 1 (1!) = 1 harusnya 0");
