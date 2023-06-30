@@ -27,7 +27,7 @@ const Builder = new OOB(
     [q8]B0B/B0B,RRS[q9];
     [q8]0B0/0B0,SSS[q10];
     [q9]00B/00B,SRS[q9];
-    [q9]0BB/0BB,SLR[q9]
+    [q9]0BB/0BB,SLR[q3]
     `
 );
 console.log(Builder.get());

@@ -3,7 +3,15 @@ import Turing from "./Turing.js";
 // import Division from "./Operation/Division.js";
 // import SquareRoot from "./Operation/SquareRoot.js";
 // import Exponent from "./Operation/Exponent.js";
-import Factorial from "./Operation/Factorial.js";
+// import Factorial from "./Operation/Factorial.js";
+import Subtraction from "./Operation/Subtraction.js";
+
+
+console.log("Turing Machine Subtraction");
+console.log("\nKasus 1 (-3-5) = -8 harusnya BB00000000BB");
+let T = new Turing(Subtraction, 3, "BB000X11111BB");
+T.runUntilFinish();
+T.printAllTape();
 
 /*
 let T = null;
@@ -150,8 +158,20 @@ e.printAllTape();
 // factorial.runUntilFinish();
 // factorial.printAllTape();
 
-console.log("Turing Machine Factorial");
-console.log("\nKasus 3 (3!) = 6 harusnya 000000");
-const factorial = new Turing(Factorial, 3, "BB0001BB");
-factorial.runUntilFinish();
-factorial.printAllTape();
+// console.log("Turing Machine Factorial");
+// console.log("\nKasus 3 (3!) = 6 harusnya 000000");
+// const factorial = new Turing(Factorial, 3, "BB0001BB");
+// factorial.runUntilFinish();
+// factorial.printAllTape();
+
+// console.log("Turing Machine Factorial");
+// console.log("\nKasus 4 (4!) = 24 harusnya 000000000000000000000000");
+// const factorial = new Turing(Factorial, 3, "BB00001BB");
+// factorial.runUntilFinish();
+// factorial.printAllTape();
+
+// console.log("Turing Machine Factorial");
+// console.log("\nKasus 5 (5!) = 120 harusnya 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000");
+// const factorial = new Turing(Factorial, 3, "BB000001BB");
+// factorial.runUntilFinish();
+// factorial.printAllTape();
