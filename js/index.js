@@ -148,8 +148,57 @@ e.printAllTape();
 // factorial.runUntilFinish();
 // factorial.printAllTape();
 
+/*
 console.log("Turing Machine Factorial");
 console.log("\nKasus 3 (3!) = 6 harusnya 000000");
 const factorial = new Turing(Factorial, 3, "BB0001BB");
 factorial.runUntilFinish();
 factorial.printAllTape();
+*/
+
+let T = null;
+console.log("Turing Machine Binary Logarithm");
+
+console.log("\nKasus 1 (log2(1)) = 0 harusnya BBBB");
+T = new Turing(BinaryLogarithm, 3, "BB1BB");
+T.runUntilFinish();
+T.printAllTape();
+
+console.log("\nKasus 2 (log2(2))) = 1 harusnya BB1BB");
+T = new Turing(BinaryLogarithm, 3, "BB11BB");
+T.runUntilFinish();
+T.printAllTape();
+
+console.log("\nKasus 3 (log2(3)) = 1 harusnya BB1BB");
+T = new Turing(BinaryLogarithm, 3, "BB111BB");
+T.runUntilFinish();
+T.printAllTape();
+
+console.log("\nKasus 4 (log2(4)) = 2 harusnya BB11BB");
+T = new Turing(BinaryLogarithm, 3, "BB1111BB");
+T.runUntilFinish();
+T.printAllTape();
+
+console.log("\nKasus 5 (log2(5)) = 2 harusnya BB11BB");
+T = new Turing(BinaryLogarithm, 3, "BB11111BB");
+T.runUntilFinish();
+T.printAllTape();
+
+console.log("\nKasus 6 (log2(8)) = 3 harusnya BB111BB");
+T = new Turing(BinaryLogarithm, 3, "BB11111111BB");
+T.runUntilFinish();
+T.printAllTape();
+
+console.log("\nKasus 7 (log2(15)) = 3 harusnya BB111BB");
+T = new Turing(BinaryLogarithm, 3, "BB111111111111111BB");
+T.runUntilFinish();
+T.printAllTape();
+
+console.log("\nKasus 8 (log2(130)) = 7 harusnya BB1111111BB");
+T = new Turing(
+    BinaryLogarithm,
+    3,
+    "BB111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111BB"
+);
+T.runUntilFinish();
+T.printAllTape();
