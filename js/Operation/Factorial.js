@@ -22,6 +22,8 @@ const Builder = new OOB(
     [q6]00B/00B,SRS[q6];
     [q6]0BB/0BB,SLR[q2];
     [q7]00B/0BB,SRL[q8];
+    [q7]0BB/0BB,SRL[q8];
+    [q8]0BB/000,SLS[q8];
     [q8]000/000,LSL[q8];
     [q8]B00/000,LSL[q8];
     [q8]B0B/B0B,RRS[q9];
