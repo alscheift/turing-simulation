@@ -141,6 +141,11 @@
                 tape.innerHTML = "";
             };
 
+            const defaultTape = function (tape) {
+                resetTape(tape);
+                setRawInput("BBBBB", tape);
+            };
+
             const setRawInput = function (rawInputValue, tape) {
                 resetTape(tape);
 
@@ -169,30 +174,10 @@
                 const tape3 = addTape(tapeContainer);
                 const tape4 = addTape(tapeContainer);
 
-                addCell(tape1, "A", true);
-                addCell(tape1, "F");
-                addCell(tape1, "I");
-                addCell(tape1, "F");
-                for (a = 0; a < 100; a++) {
-                    addCell(tape1, "F");
-                }
-
-                addCell(tape2, "A");
-                addCell(tape2, "F", true);
-                addCell(tape2, "A");
-                addCell(tape2, "N");
-
-                addCell(tape3, "H");
-                addCell(tape3, "A");
-                addCell(tape3, "F", true);
-                addCell(tape3, "I");
-                addCell(tape3, "D");
-                addCell(tape3, "H");
-
-                addCell(tape4, "F");
-                addCell(tape4, "A");
-                addCell(tape4, "I");
-                addCell(tape4, "Z", true);
+                defaultTape(tape1);
+                defaultTape(tape2);
+                defaultTape(tape3);
+                defaultTape(tape4);
 
                 inputBtn.addEventListener("click", function (event) {
                     resetTape(tape1);
