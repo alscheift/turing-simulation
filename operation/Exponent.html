@@ -106,7 +106,18 @@
                 </div>
             </div>
         </section>
-
+        <!-- HTML -->
+        
+        <div id="modal" class="z-50 hidden fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center">
+            <div class="bg-white p-6 rounded shadow-lg">
+            <h2 class="text-xl font-bold mb-4">Mesin Selesai 😎</h2>
+            <p></p>
+            <button id="closeModalBtn" class="mt-4 bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+                Close
+            </button>
+            </div>
+        </div>
+  
         <section id="input" class="mb-10 mx-4 flex flex-col gap-y-4">
             <div class="flex gap-x-5">
                 <div class="flex items-end">
@@ -134,10 +145,11 @@
                 </div>
             </div>
         </section>
-
+            
         <main>
             <div class="tape-container flex flex-col mx-2"></div>
         </main>
+        <script type="module" src="../js/cellStyle.js"></script>
         <script type="module" src="../js/OperationObjectBuilder.js"></script>
         <script type="module" src="../js/Operation/Exponent.js"></script>
         <script type="module" src="../js/Tape.js"></script>
@@ -145,24 +157,26 @@
         <script type="module">
             import Turing from "../js/Turing.js";
             import Exponent from "../js/Operation/Exponent.js";
-
+            import cellStyle from "../js/cellStyle.js";
+           
             // T = Turing
             let T = null;
             let isPlaying = false;
 
-            const cellStyle = {
-                head: "border-blue-500 bg-red-500 hover:bg-blue-500 text-white",
-                standard:
-                    "border-blue-500 bg-blue-600 hover:bg-red-500 text-white",
 
-                defaultAll:
-                    "border-2 px-6 py-2 font-mono font-medium tracking-wide capitalize transition-colors duration-300 transform rounded-lg",
+            let openModalBtn;
+            let closeModalBtn;
+            let modal;
 
-                getStyle(isHead) {
-                    const def = this.defaultAll + " ";
-                    return isHead ? def + this.head : def + this.standard;
-                },
-            };
+            // Function to open the modal
+            function openModal() {
+                modal.classList.remove("hidden");
+            }
+
+                // Function to close the modal
+            function closeModal() {
+                modal.classList.add("hidden");
+            }
 
             const addTape = function (container) {
                 const tape = document.createElement("div");
@@ -218,9 +232,11 @@
                         );
                     }
                 });
+                if(T.isFinished){
+                    isPlaying = false;
+                    openModal();
+                }
             };
-
-            const setInput = function (tape, input) {};
 
             document.addEventListener("DOMContentLoaded", function (event) {
                 // Create a new <div> element
@@ -292,6 +308,17 @@
                         nextMove(Tapes);
                     }
                 }, 750);
+
+                // JavaScript
+                openModalBtn = document.getElementById("openModalBtn");
+                closeModalBtn = document.getElementById("closeModalBtn");
+                modal = document.getElementById("modal");
+
+                
+                
+
+                // Event listener for closing the modal
+                closeModalBtn.addEventListener("click", closeModal);
             });
         </script>
     </body>
