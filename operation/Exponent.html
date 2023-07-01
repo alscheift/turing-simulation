@@ -23,31 +23,36 @@
             <div class="flex gap-x-5">
                 <div>
                     <label
-                        for="username"
+                        for="input-base"
                         class="block text-sm text-gray-500 dark:text-gray-300"
                         >Base</label
                     >
 
                     <input
                         type="text"
+                        id="input-base"
+                        name="input-base"
                         placeholder="Number"
                         class="block mt-2 w-full placeholder-gray-400/70 dark:placeholder-gray-500 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-blue-300" />
                 </div>
                 <div>
                     <label
-                        for="username"
+                        for="input-exponent"
                         class="block text-sm text-gray-500 dark:text-gray-300"
                         >Exponent</label
                     >
 
                     <input
                         type="text"
+                        id="input-exponent"
+                        name="input-exponent"
                         placeholder="Number"
                         class="block mt-2 w-full placeholder-gray-400/70 dark:placeholder-gray-500 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-blue-300" />
                 </div>
 
                 <div class="flex items-end">
                     <button
+                        id="input-btn"
                         class="px-6 py-3 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
                         Set
                     </button>
@@ -57,14 +62,16 @@
             <div class="flex gap-x-5">
                 <div>
                     <label
-                        for="username"
+                        for="raw-input"
                         class="block text-sm text-gray-500 dark:text-gray-300"
                         >Raw Input</label
                     >
 
                     <input
                         type="text"
-                        placeholder="BBXXBYYYYB"
+                        placeholder="BBXX0YYYYB"
+                        name="raw-input"
+                        id="raw-input"
                         class="block mt-2 w-full placeholder-gray-400/70 dark:placeholder-gray-500 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-blue-300" />
                 </div>
 
@@ -83,6 +90,7 @@
 
                 <div class="flex items-end">
                     <button
+                        id="raw-input-btn"
                         class="px-6 py-3 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
                         Set
                     </button>
@@ -129,9 +137,33 @@
                 return newCell;
             };
 
+            const resetTape = function (tape) {
+                tape.innerHTML = "";
+            };
+
+            const setRawInput = function (rawInputValue, tape) {
+                resetTape(tape);
+
+                for (a = 0; a < rawInputValue.length; a++) {
+                    addCell(tape, rawInputValue[a]);
+                }
+            };
+
+            const setInput = function (tape, input) {};
+
             document.addEventListener("DOMContentLoaded", function (event) {
                 // Create a new <div> element
                 const tapeContainer = document.querySelector(".tape-container");
+
+                // Standard Input Form
+                const baseInput = document.getElementById("input-base");
+                const exponentInput = document.getElementById("input-exponent");
+                const inputBtn = document.getElementById("input-btn");
+
+                // Raw Input Form
+                const rawInput = document.getElementById("raw-input");
+                const rawInputBtn = document.getElementById("raw-input-btn");
+
                 const tape1 = addTape(tapeContainer);
                 const tape2 = addTape(tapeContainer);
                 const tape3 = addTape(tapeContainer);
@@ -161,6 +193,24 @@
                 addCell(tape4, "A");
                 addCell(tape4, "I");
                 addCell(tape4, "Z", true);
+
+                inputBtn.addEventListener("click", function (event) {
+                    resetTape(tape1);
+                    const base = baseInput.value;
+                    const exponent = exponentInput.value;
+
+                    let rawInputValue = "BB";
+                    rawInputValue += "1".repeat(base);
+                    rawInputValue += "0";
+                    rawInputValue += "1".repeat(exponent);
+                    rawInputValue += "BB";
+
+                    setRawInput(rawInputValue, tape1);
+                });
+
+                rawInputBtn.addEventListener("click", function (event) {
+                    setRawInput(rawInput.value, tape1);
+                });
             });
         </script>
     </body>
