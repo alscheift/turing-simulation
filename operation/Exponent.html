@@ -10,6 +10,30 @@
                 darkMode: "class",
             };
         </script>
+
+        <style>
+            @layer utilities {
+                .scrollbar::-webkit-scrollbar {
+                    width: 10px;
+                    height: 10px;
+                }
+
+                .scrollbar::-webkit-scrollbar-track {
+                    border-radius: 100vh;
+                    background: #f0f7ed;
+                }
+
+                .scrollbar::-webkit-scrollbar-thumb {
+                    background: #25a8ff;
+                    border-radius: 100vh;
+                    border: 3px solid #25a8ff;
+                }
+
+                .scrollbar::-webkit-scrollbar-thumb:hover {
+                    background: #25a8ff;
+                }
+            }
+        </style>
     </head>
     <body>
         <div class="flex flex-col">
@@ -20,7 +44,7 @@
         </div>
 
         <main>
-            <div class="tape-container flex flex-col"></div>
+            <div class="tape-container flex flex-col mx-2"></div>
         </main>
         <script>
             const cellStyle = {
@@ -41,7 +65,7 @@
 
                 tape.setAttribute(
                     "class",
-                    "tape px-2 py-2 flex gap-x-1 flex-row w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg dark:bg-gray-800"
+                    "tape px-2 py-2 flex gap-x-1 flex-row w-full mx-auto overflow-x-scroll bg-white rounded-lg dark:bg-gray-800 scrollbar"
                 );
 
                 container.appendChild(tape);
@@ -69,6 +93,9 @@
                 addCell(tape1, "F");
                 addCell(tape1, "I");
                 addCell(tape1, "F");
+                for (a = 0; a < 100; a++) {
+                    addCell(tape1, "F");
+                }
 
                 addCell(tape2, "A");
                 addCell(tape2, "F", true);
