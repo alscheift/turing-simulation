@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Turing</title>
+
+        <!-- Tailwind -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="../tailwind.config.js"></script>
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="../css/scrollbar.css" />
+    </head>
+    <body>
+        <div class="flex flex-col">
+            <div class="mx-auto p-5 mb-10 text-center">
+                <h1 class="font-medium">Turing Machine</h1>
+                <h1 class="font-medium">Custom</h1>
+            </div>
+        </div>
+        <!-- Back to main index.html -->
+        <div class="flex flex-col">
+            <div class="p-4 mb-10 ">
+                <a
+                    href="../index.html"
+                    class="px-2 py-1 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
+                    Back to Main
+                </a>
+            </div>
+        <section id="input" class="mb-10 mx-4 flex flex-col gap-y-4">
+            <div class="flex gap-x-5">
+                <div>
+                    <label for="Transition-state" class="block text-sm text-gray-500 dark:text-gray-300">Transition-state</label>
+                    
+                    <textarea name="transition-state" id="transition-state" cols="57" placeholder="[q1]1BB/EBB,RRS[q2];&#10;[q2]EBB/BBB,LLS[q3]&#10;....&#10;Separate with semi-colon ;" class="block  mt-2 w-full  placeholder-gray-400/70 dark:placeholder-gray-500 rounded-lg border border-gray-200 bg-white px-4 h-32 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-blue-300"></textarea>
+                </div>
+
+            </div>
+
+            <div class="flex gap-x-5">
+                <div>
+                    <label
+                        for="Transition-state"
+                        class="block text-sm text-gray-500 dark:text-gray-300"
+                        >Final-state</label
+                    >
+
+                    <input
+                        type="text"
+                        placeholder="q10;q20;q30"
+                        name="final-state"
+                        id="final-state"
+                        class="block mt-2 w-full placeholder-gray-400/70 dark:placeholder-gray-500 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-blue-300" />
+                </div>
+
+                <div class="invisible">
+                    <label
+                        for="username"
+                        class="block text-sm text-gray-500 dark:text-gray-300"
+                        >Ga keliatan bang</label
+                    >
+
+                    <input
+                        type="text"
+                        placeholder="Number"
+                        class="block mt-2 w-full placeholder-gray-400/70 dark:placeholder-gray-500 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-blue-300" />
+                </div>
+
+                <div class="flex items-end">
+                    <button
+                        id="custom-input-button"
+                        class="px-6 py-3 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
+                        Set
+                    </button>
+                </div>
+                
+            </div>
+            <div class="flex gap-x-5">
+                <div>
+                    <label
+                        for="raw-input"
+                        class="block text-sm text-gray-500 dark:text-gray-300"
+                        >Raw Input</label
+                    >
+
+                    <input
+                        type="text"
+                        placeholder="BBXX0YYYYB"
+                        name="raw-input"
+                        id="raw-input"
+                        class="block mt-2 w-full placeholder-gray-400/70 dark:placeholder-gray-500 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-blue-300" />
+                </div>
+
+                <div class="invisible">
+                    <label
+                        for="username"
+                        class="block text-sm text-gray-500 dark:text-gray-300"
+                        >Ga keliatan bang</label
+                    >
+
+                    <input
+                        type="text"
+                        placeholder="Number"
+                        class="block mt-2 w-full placeholder-gray-400/70 dark:placeholder-gray-500 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-blue-300" />
+                </div>
+
+                <div class="flex items-end">
+                    <button
+                        id="raw-input-button"
+                        class="px-6 py-3 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
+                        Set
+                    </button>
+                </div>
+            </div>
+        </section>
+        <!-- HTML -->
+        
+        <div id="modal" class="z-50 hidden fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center">
+            <div class="bg-white p-6 rounded shadow-lg">
+            <h2 class="text-xl font-bold mb-4">Mesin Selesai 😎</h2>
+            <p></p>
+            <button id="closeModalBtn" class="mt-4 bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+                Close
+            </button>
+            </div>
+        </div>
+  
+        <section id="input" class="mb-10 mx-4 flex flex-col gap-y-4">
+            <div class="flex gap-x-5">
+                <div class="flex items-end">
+                    <button
+                        id="nextMove-button"
+                        class="px-6 py-3 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
+                        nextMove
+                    </button>
+                </div>
+
+                <div class="flex items-end">
+                    <button
+                        id="play-button"
+                        class="px-6 py-3 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
+                        play
+                    </button>
+                </div>
+
+                <div class="flex items-end">
+                    <button
+                        id="pause-button"
+                        class="px-6 py-3 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
+                        pause
+                    </button>
+                </div>
+            </div>
+        </section>
+            
+        <main>
+            <div class="tape-container flex flex-col mx-2"></div>
+        </main>
+        <script type="module" src="../js/cellStyle.js"></script>
+        <script type="module" src="../js/OperationObjectBuilder.js"></script>
+        <script type="module" src="../js/Tape.js"></script>
+        <script type="module" src="../js/Turing.js"></script>
+        <script type="module">
+            import Turing from "../js/Turing.js";
+            import OOB from "../js/OperationObjectBuilder.js";
+            import cellStyle from "../js/cellStyle.js";
+           
+            // T = Turing
+            let T = null;
+            let Operation = null;
+            let isPlaying = false;
+
+
+            let openModalBtn;
+            let closeModalBtn;
+            let modal;
+
+            // Function to open the modal
+            function openModal() {
+                modal.classList.remove("hidden");
+            }
+
+                // Function to close the modal
+            function closeModal() {
+                modal.classList.add("hidden");
+            }
+
+            const addTape = function (container) {
+                const tape = document.createElement("div");
+
+                tape.setAttribute(
+                    "class",
+                    "tape px-2 py-2 flex gap-x-1 flex-row w-full mx-auto overflow-x-scroll bg-white rounded-lg dark:bg-gray-800 scrollbar"
+                );
+
+                container.appendChild(tape);
+                return tape;
+            };
+
+            const addCell = function (tape, text, isHead = false) {
+                const newCell = document.createElement("div");
+                newCell.setAttribute("class", cellStyle.getStyle(isHead));
+
+                newCell.textContent = text;
+                tape.appendChild(newCell);
+                return newCell;
+            };
+
+            const resetTape = function (tape) {
+                tape.innerHTML = "";
+            };
+
+            const defaultTape = function (tape) {
+                resetTape(tape);
+                setRawInput("BBBBB", tape);
+            };
+
+            const setRawInput = function (rawInputValue, tape) {
+                resetTape(tape);
+
+                for (let a = 0; a < rawInputValue.length; a++) {
+                    addCell(tape, rawInputValue[a]);
+                }
+            };
+
+            const nextMove = function (Tapes) {
+                T.nextMove();
+                const tapes = T.Tapes;
+                tapes.forEach((element) => {
+                    const tape = element.tape;
+                    const head = element.head;
+
+                    resetTape(Tapes[tapes.indexOf(element)]);
+                    for (let i = 0; i < tape.length; i++) {
+                        addCell(
+                            Tapes[tapes.indexOf(element)],
+                            tape[i],
+                            i === head
+                        );
+                    }
+                });
+                if(T.isFinished){
+                    isPlaying = false;
+                    openModal();
+                }
+            };
+
+            document.addEventListener("DOMContentLoaded", function (event) {
+                // Create a new <div> element
+                const tapeContainer = document.querySelector(".tape-container");
+
+                // Custom Input Form
+                const transitionState = document.getElementById("transition-state");
+                const finalState = document.getElementById("final-state");
+                const customButton = document.getElementById("custom-input-button");
+                
+                // Raw input
+                const rawInputBtn = document.getElementById("raw-input-button");
+                const rawInput = document.getElementById("raw-input");
+                
+
+                // Buttons
+                const nextMoveBtn = document.getElementById("nextMove-button");
+                const playBtn = document.getElementById("play-button");
+                const pauseBtn = document.getElementById("pause-button");
+
+
+                let Tapes = [];
+
+                customButton.addEventListener("click", function (event) {
+                    tapeContainer.innerHTML = "";
+
+                    Tapes = [];
+                    Operation = null;
+                    isPlaying = false;
+
+                    const transitionStateValue = transitionState.value;
+                    const finalStateValue = finalState.value;
+
+                    const Builder = new OOB(transitionState.value);
+                    Builder.setFinalStates(finalState.value);
+
+                    Operation = Builder.get();
+
+                    const tapeCount = Builder.tapeCount;
+                    for (let i = 0; i < tapeCount; i++) {
+                        const newTape = addTape(tapeContainer);
+                        defaultTape(newTape);
+                        Tapes.push(newTape);
+                    }
+                });
+
+
+                rawInputBtn.addEventListener("click", function (event) {
+                    setRawInput(rawInput.value, Tapes[0]);
+
+                    T = new Turing(Operation, Tapes.length, rawInput.value);
+                });
+
+                nextMoveBtn.addEventListener("click", function (event) {
+                    nextMove(Tapes);
+                });
+
+                playBtn.addEventListener("click", function (event) {
+                    if (T != null) {
+                        isPlaying = true;
+                    } else {
+                        alert("Please input a value first");
+                    }
+                });
+
+                pauseBtn.addEventListener("click", function (event) {
+                    isPlaying = false;
+                });
+
+                setInterval(function () {
+                    if (isPlaying) {
+                        nextMove(Tapes);
+                    }
+                }, 750);
+
+                // JavaScript
+                openModalBtn = document.getElementById("openModalBtn");
+                closeModalBtn = document.getElementById("closeModalBtn");
+                modal = document.getElementById("modal");
+
+                
+                
+
+                // Event listener for closing the modal
+                closeModalBtn.addEventListener("click", closeModal);
+            });
+        </script>
+    </body>
+</html>
