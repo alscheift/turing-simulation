@@ -1,5 +1,5 @@
 const cellStyle = {
-    head: "bg-purple-500 hover:bg-indigo-500 text-white",
+    head: "bg-purple-500 hover:bg-indigo-500 text-white -translate-y-0.5",
     standard: "bg-indigo-600 hover:bg-indigo-500 text-white",
 
     defaultAll:
