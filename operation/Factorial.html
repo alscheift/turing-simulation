@@ -115,6 +115,24 @@
                         pause
                     </button>
                 </div>
+
+                
+                <div class="flex items-end">
+                    <button
+                        id="run-until-finish-button"
+                        class="px-6 py-3 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
+                        Finish
+                    </button>
+                </div>
+
+                <div class="flex items-end">
+                    <button
+                        id="reset-button"
+                        class="px-6 py-3 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
+                        Reset
+                    </button>
+                </div>
+                
             </div>
         </section>
             
@@ -186,8 +204,7 @@
                 }
             };
 
-            const nextMove = function (Tapes) {
-                T.nextMove();
+            const renderTape = function(Tapes){
                 const tapes = T.Tapes;
                 tapes.forEach((element) => {
                     const tape = element.tape;
@@ -206,6 +223,11 @@
                     isPlaying = false;
                     openModal();
                 }
+            }
+
+            const nextMove = function (Tapes) {
+                T.nextMove();
+                renderTape(Tapes);
             };
 
             document.addEventListener("DOMContentLoaded", function (event) {
@@ -220,6 +242,8 @@
                 const nextMoveBtn = document.getElementById("nextMove-button");
                 const playBtn = document.getElementById("play-button");
                 const pauseBtn = document.getElementById("pause-button");
+                const resetButton = document.getElementById("reset-button");
+                const runUntilFinishButton = document.getElementById("run-until-finish-button");
 
                 // Raw Input Form
                 const rawInput = document.getElementById("raw-input");
@@ -246,12 +270,14 @@
                     setRawInput(rawInputValue, Tapes[0]);
 
                     T = new Turing(Factorial, 3, rawInputValue);
+                    renderTape(Tapes);
                 });
 
                 rawInputBtn.addEventListener("click", function (event) {
                     setRawInput(rawInput.value, Tapes[0]);
 
                     T = new Turing(Factorial, 3, rawInput.value);
+                    renderTape(Tapes);
                 });
 
                 nextMoveBtn.addEventListener("click", function (event) {
@@ -269,6 +295,30 @@
                 pauseBtn.addEventListener("click", function (event) {
                     isPlaying = false;
                 });
+
+                
+                resetButton.addEventListener("click", function (event) {
+                    if (T != null) {
+                        T= null;
+                        isPlaying = false;
+                      Tapes.forEach((tape) => {
+                        
+                        defaultTape(tape);
+                      });  
+                    } 
+                });
+
+                runUntilFinishButton.addEventListener("click", function (event) {
+                    if (T != null) {
+                        isPlaying = true;
+                        T.runUntilFinish();
+                        renderTape(Tapes);
+                        isPlaying = false;
+                    } else {
+                        alert("Please input a value first");
+                    }
+                });
+
 
                 setInterval(function () {
                     if (isPlaying) {
