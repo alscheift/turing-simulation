@@ -4,6 +4,9 @@ class Turing {
     Tapes = [];
     transitionDiagram = {};
 
+    maxTapeLength = 5;
+    movements = [];
+
     currentState = "q0";
     isFinished = false;
     constructor(operation, jumlahTape, firstTapeInput) {
@@ -12,6 +15,7 @@ class Turing {
         for (let i = 1; i < jumlahTape; i++) {
             this.Tapes.push(new Tape());
         }
+        this.storeMovement();
     }
 
     printAllTape() {
@@ -31,6 +35,14 @@ class Turing {
             // this.printAllTape();
             this.nextMove();
         }
+    }
+
+    storeMovement() {
+        this.movements.push({
+            tapes: this.Tapes,
+            heads: this.Tapes.map((tape) => tape.getHead()),
+            currentState: this.currentState,
+        });
     }
 
     nextMove() {
@@ -80,6 +92,21 @@ class Turing {
             }
         });
         this.currentState = currentTransitionData.nextState;
+        this.storeMovement();
+    }
+    getTape(tapeIndex) {
+        return this.Tapes[tapeIndex];
+    }
+    getTapeCount() {
+        return this.Tapes.length;
+    }
+
+    getMovements() {
+        return this.movements;
+    }
+
+    getMovementsCount() {
+        return this.movements.length;
     }
 }
 

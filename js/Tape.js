@@ -27,6 +27,10 @@ class Tape {
         this.head++;
     }
 
+    getHead() {
+        return this.head;
+    }
+
     print() {
         const tempVal = this.read();
         this.write(`[${tempVal}]`);

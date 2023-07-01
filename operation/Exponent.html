@@ -101,9 +101,16 @@
         <main>
             <div class="tape-container flex flex-col mx-2"></div>
         </main>
-        <script>
+        <script type="module" src="../js/OperationObjectBuilder.js"></script>
+        <script type="module" src="../js/Operation/Exponent.js"></script>
+        <script type="module" src="../js/Tape.js"></script>
+        <script type="module" src="../js/Turing.js"></script>
+        <script type="module">
+            import Turing from "../js/Turing.js";
+            import Exponent from "../js/Operation/Exponent.js";
+
             const cellStyle = {
-                head: "border-red-500 bg-white-600 hover:bg-blue-500 text-red",
+                head: "border-blue-500 bg-red-500 hover:bg-blue-500 text-white",
                 standard:
                     "border-blue-500 bg-blue-600 hover:bg-red-500 text-white",
 
@@ -149,7 +156,7 @@
             const setRawInput = function (rawInputValue, tape) {
                 resetTape(tape);
 
-                for (a = 0; a < rawInputValue.length; a++) {
+                for (let a = 0; a < rawInputValue.length; a++) {
                     addCell(tape, rawInputValue[a]);
                 }
             };
@@ -169,18 +176,17 @@
                 const rawInput = document.getElementById("raw-input");
                 const rawInputBtn = document.getElementById("raw-input-btn");
 
-                const tape1 = addTape(tapeContainer);
-                const tape2 = addTape(tapeContainer);
-                const tape3 = addTape(tapeContainer);
-                const tape4 = addTape(tapeContainer);
+                const Tapes = [];
+                const tapeCount = 3;
 
-                defaultTape(tape1);
-                defaultTape(tape2);
-                defaultTape(tape3);
-                defaultTape(tape4);
+                for (let i = 0; i < tapeCount; i++) {
+                    const tape = addTape(tapeContainer);
+                    Tapes.push(tape);
+                    defaultTape(tape);
+                }
 
                 inputBtn.addEventListener("click", function (event) {
-                    resetTape(tape1);
+                    resetTape(Tapes[0]);
                     const base = baseInput.value;
                     const exponent = exponentInput.value;
 
@@ -190,11 +196,25 @@
                     rawInputValue += "1".repeat(exponent);
                     rawInputValue += "BB";
 
-                    setRawInput(rawInputValue, tape1);
+                    setRawInput(rawInputValue, Tapes[0]);
+
+                    let T = null;
+                    T = new Turing(Exponent, 3, rawInputValue);
+                    T.runUntilFinish();
+
+                    const result = T.getTape(2).tape.join("");
+                    setRawInput(result, Tapes[2]);
                 });
 
                 rawInputBtn.addEventListener("click", function (event) {
-                    setRawInput(rawInput.value, tape1);
+                    setRawInput(rawInput.value, Tapes[0]);
+
+                    let T = null;
+                    T = new Turing(Exponent, 3, rawInput.value);
+                    T.runUntilFinish();
+
+                    const result = T.getTape(2).tape.join("");
+                    setRawInput(result, Tapes[2]);
                 });
             });
         </script>
