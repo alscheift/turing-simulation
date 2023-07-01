@@ -3,6 +3,7 @@ import Addition from "./Operation/Addition.js";
 import Division from "./Operation/Division.js";
 import SquareRoot from "./Operation/SquareRoot.js";
 import Exponent from "./Operation/Exponent.js";
+import Multiplication from "./Operation/Multiplication.js";
 import Factorial from "./Operation/Factorial.js";
 
 /*
@@ -147,8 +148,7 @@ e.printAllTape();
 // factorial.runUntilFinish();
 // factorial.printAllTape();
 
-// /*
-console.log("Turing Machine Factorial");
+// console.log("Turing Machine Factorial");
 // console.log("\nKasus 3 (3!) = 6 harusnya 000000");
 // const factorial = new Turing(Factorial, 3, "BB0001BB");
 // factorial.runUntilFinish();
@@ -165,8 +165,8 @@ console.log("Turing Machine Factorial");
 // const factorial = new Turing(Factorial, 3, "BB000001BB");
 // factorial.runUntilFinish();
 // factorial.printAllTape();
-*/
 
+/*
 let T = null;
 console.log("Turing Machine Binary Logarithm");
 
@@ -211,5 +211,52 @@ T = new Turing(
     3,
     "BB111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111BB"
 );
+T.runUntilFinish();
+T.printAllTape();
+*/
+
+console.log("Turing Machine Multiplication");
+console.log("\nKasus 0 (0 * 0) = 0 harusnya BB");
+let T = new Turing(Multiplication, 3, "BBXXBB");
+T.runUntilFinish();
+T.printAllTape();
+
+console.log("\nKasus 1 (0 * 9) = 0 harusnya BBBB");
+T = new Turing(Multiplication, 3, "BBX111111111XBB");
+T.runUntilFinish();
+T.printAllTape();
+
+console.log("\nKasus 2 (0 * -3) = 0 harusnya BBBB");
+T = new Turing(Multiplication, 3, "BBX000XBB");
+T.runUntilFinish();
+T.printAllTape();
+
+console.log("\nKasus 3 (12 * 0) = 0 harusnya 0");
+T = new Turing(Multiplication, 3, "BB111111111111XXBB");
+T.runUntilFinish();
+T.printAllTape();
+
+console.log("\nKasus 4 (-5 * 0) = 0 harusnya 0");
+T = new Turing(Multiplication, 3, "BB00000XXBB");
+T.runUntilFinish();
+T.printAllTape();
+
+console.log("\nKasus 5 (4 * 3) = 12 harusnya 111111111111");
+T = new Turing(Multiplication, 3, "BB1111X111XBB");
+T.runUntilFinish();
+T.printAllTape();
+
+console.log("\nKasus 6 (4 * -3) = -12 harusnya 000000000000");
+T = new Turing(Multiplication, 3, "BB1111X000XBB");
+T.runUntilFinish();
+T.printAllTape();
+
+console.log("\nKasus 7 (-3 * 5) = -9 harusnya 000000000000000");
+T = new Turing(Multiplication, 3, "BB000X11111XBB");
+T.runUntilFinish();
+T.printAllTape();
+
+console.log("\nKasus 8 (-3 * -3) = 9 harusnya 111111111");
+T = new Turing(Multiplication, 3, "BB000X000XBB");
 T.runUntilFinish();
 T.printAllTape();
