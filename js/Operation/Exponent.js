@@ -2,7 +2,7 @@ import OOB from "../OperationObjectBuilder.js";
 
 const Builder = new OOB(
     `
-    [q0]1BB/11B,LLL[q0];
+    [q0]1BB/111,LLL[q0];
     [q0]BBB/EEE,SSS[q0];
     [q0]EEE/EEE,RSS[q1];
     [q0]0BB/0BB,RSS[q9];
