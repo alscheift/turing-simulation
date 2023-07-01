@@ -1,96 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Turing</title>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Turing</title>
 
-        <!-- Tailwind -->
-        <script src="https://cdn.tailwindcss.com"></script>
-        <script src="../tailwind.config.js"></script>
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
-        <!-- Custom CSS -->
-        <link rel="stylesheet" href="../css/scrollbar.css" />
-    </head>
-    <body>
-        <div class="flex flex-col">
-            <div class="mx-auto p-5 mb-10 text-center">
-                <h1 class="font-medium">Turing Machine</h1>
-                <h1 class="font-medium">Simulation</h1>
-            </div>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/scrollbar.css" />
+</head>
+<body class="bg-gray-100">
+    <div class="flex flex-col items-center justify-center min-h-screen">
+        <div class="p-5 mb-10 text-center">
+            <h1 class="text-3xl font-medium">Turing Machine</h1>
+            <h1 class="text-3xl font-medium">Simulation</h1>
         </div>
 
         <main>
-            <div
-                class="flex gap-y-2 flex-col w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg dark:bg-gray-800">
-                <a
-                    href="operation/Addition.html"
-                    class="px-6 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
-                        Addition
+            <div class="grid grid-cols-3 gap-8">
+                <a href="operation/Addition.html" class="card-link">
+                    <div class="card bg-white p-3 rounded-xl hover:bg-blue-100 hover:shadow-md">
+                        <h2 class="card-title text-lg text-gray-900 font-semibold">Addition</h2>
+                        <p class="card-description text-sm text-gray-700">Perform addition operations.</p>
+                    </div>
                 </a>
 
-                <a
-                    href="operation/Subtraction.html"
-                    class="px-6 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
-                    Subtraction
+                <a href="operation/Subtraction.html" class="card-link">
+                    <div class="card bg-white p-3 rounded-xl hover:bg-blue-100 hover:shadow-md">
+                        <h2 class="card-title text-lg text-gray-900 font-semibold">Subtraction</h2>
+                        <p class="card-description text-sm text-gray-700">Perform subtraction operations.</p>
+                    </div>
                 </a>
 
-                <a
-                    href="operation/Multiplication.html"
-                    class="px-6 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
-                    Multiplication
+                <a href="operation/Multiplication.html" class="card-link">
+                    <div class="card bg-white p-3 rounded-xl hover:bg-blue-100 hover:shadow-md">
+                        <h2 class="card-title text-lg text-gray-900 font-semibold">Multiplication</h2>
+                        <p class="card-description text-sm text-gray-700">Perform multiplication operations.</p>
+                    </div>
                 </a>
 
-                <a
-                    href="operation/Division.html"
-                    class="px-6 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
-                    Division
-                </a>
-                
-                <a
-                    href="operation/Exponent.html"
-                    class="px-6 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
-                    Exponent
+                <a href="operation/Division.html" class="card-link">
+                    <div class="card bg-white p-3 rounded-xl hover:bg-blue-100 hover:shadow-md">
+                        <h2 class="card-title text-lg text-gray-900 font-semibold ">Division</h2>
+                        <p class="card-description text-sm text-gray-700">Perform division operations.</p>
+                    </div>
                 </a>
 
-                <a
-                    href="operation/BinaryLogarithm.html"
-                    class="px-6 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
-                    Binary Logarithm
+                <a href="operation/Exponent.html" class="card-link">
+                    <div class="card bg-white p-3 rounded-xl hover:bg-blue-100 hover:shadow-md">
+                        <h2 class="card-title text-lg text-gray-900 font-semibold">Exponent</h2>
+                        <p class="card-description text-sm text-gray-700">Perform exponent operations.</p>
+                    </div>
                 </a>
 
-                <a
-                    href="operation/SquareRoot.html"
-                    class="px-6 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
-                    Square Root
-                </a>
-                
-                <a
-                    href="operation/Factorial.html"
-                    class="px-6 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
-                    Factorial
+                <a href="operation/BinaryLogarithm.html" class="card-link">
+                    <div class="card bg-white p-3 rounded-xl hover:bg-blue-100 hover:shadow-md">
+                        <h2 class="card-title text-lg text-gray-900 font-semibold">Binary Logarithm</h2>
+                        <p class="card-description text-sm text-gray-700">Perform binary logarithm operations.</p>
+                    </div>
                 </a>
 
-                <a
-                    href="operation/Custom.html"
-                    class="px-6 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
-                    Custom
+                <a href="operation/SquareRoot.html" class="card-link">
+                    <div class="card bg-white p-3 rounded-xl hover:bg-blue-100 hover:shadow-md">
+                        <h2 class="card-title text-lg text-gray-900 font-semibold">Square Root</h2>
+                        <p class="card-description text-sm text-gray-700">Perform square root operations.</p>
+                    </div>
                 </a>
+
+                <a href="operation/Factorial.html" class="card-link">
+                    <div class="card bg-white p-3 rounded-xl hover:bg-blue-100 hover:shadow-md">
+                        <h2 class="card-title text-lg text-gray-900 font-semibold">Factorial</h2>
+                        <p class="card-description text-sm text-gray-700">Perform factorial operations.</p>
+                    </div>
+                </a>
+
+                <a href="operation/Custom.html" class="card-link">
+                    <div class="card bg-white p-3 rounded-xl hover:bg-blue-100 hover:shadow-md">
+                        <h2 class="card-title text-lg text-gray-900 font-semibold">Custom</h2>
+                        <p class="card-description text-sm text-gray-700">Perform custom operations.</p>
+                    </div>
+                </a>
+
             </div>
         </main>
-    </body>
-</html>
 
-<!-- 
-        <script type="module" src="js/OperationObjectBuilder.js"></script>
-        <script type="module" src="js/Operation/Addition.js"></script>
-        <script type="module" src="js/Operation/Subtraction.js"></script>
-        <script type="module" src="js/Operation/Exponent.js"></script>
-        <script type="module" src="js/Operation/Division.js"></script>
-        <script type="module" src="js/Operation/SquareRoot.js"></script>
-        <script type="module" src="js/Operation/Factorial.js"></script>
-        <script type="module" src="js/Operation/BinaryLogarithm.js"></script>
-        <script type="module" src="js/Tape.js"></script>
-        <script type="module" src="js/Turing.js"></script>
-        <script type="module" src="js/index.js"></script> 
--->
+        <footer class="mt-10 text-center text-gray-500">
+            <h5>&copy; 2023 Kelompok 3 TBA. All rights reserved.</h5>
+        </footer>
+    </div>
+
+    <script src="../tailwind.config.js"></script>
+</body>
+</html>
