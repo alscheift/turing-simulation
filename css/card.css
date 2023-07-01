@@ -21,3 +21,7 @@
     display: block;
     width: 100%;
 }
+
+hr .border-black{
+    border-color: #000;
+}
