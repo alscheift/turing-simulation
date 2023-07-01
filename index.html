@@ -4,11 +4,47 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Turing</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                darkMode: "class",
+            };
+        </script>
     </head>
     <body>
-        <h1>Halo</h1>
-        <h2>Test Turing</h2>
+        <div class="flex flex-col">
+            <div class="mx-auto p-5 mb-10 text-center">
+                <h1 class="font-medium">Turing Machine</h1>
+                <h1 class="font-medium">Simulation</h1>
+            </div>
+        </div>
 
+        <main>
+            <div
+                class="flex gap-y-2 flex-col w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg dark:bg-gray-800">
+                <a
+                    href="operation/Exponent.html"
+                    class="px-6 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
+                    Exponent
+                </a>
+
+                <a
+                    href="operation/BinaryLogarithm.html"
+                    class="px-6 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
+                    Binary Logarithm
+                </a>
+
+                <a
+                    href="operation/Custom.html"
+                    class="px-6 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
+                    Custom
+                </a>
+            </div>
+        </main>
+    </body>
+</html>
+
+<!-- 
         <script type="module" src="js/OperationObjectBuilder.js"></script>
         <script type="module" src="js/Operation/Addition.js"></script>
         <script type="module" src="js/Operation/Subtraction.js"></script>
@@ -19,6 +55,5 @@
         <script type="module" src="js/Operation/BinaryLogarithm.js"></script>
         <script type="module" src="js/Tape.js"></script>
         <script type="module" src="js/Turing.js"></script>
-        <script type="module" src="js/index.js"></script>
-    </body>
-</html>
+        <script type="module" src="js/index.js"></script> 
+-->
