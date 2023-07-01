@@ -1,6 +1,7 @@
 // class to build operation object easier
 class OOB {
     ObjectDiagram = {};
+    tapeCount = -1;
     constructor(query) {
         this.ObjectDiagram = {
             state: {},
@@ -42,6 +43,14 @@ class OOB {
             tapeHeads: moveTapeto.split(""),
             nextState: stateTo,
         });
+
+        if (this.tapeCount === -1) {
+            this.tapeCount = moveTapeto.length;
+        } else {
+            if (this.tapeCount !== moveTapeto.length) {
+                throw new Error("Tape count is not equal");
+            }
+        }
     }
 
     setFinalState(finalState) {
@@ -51,6 +60,12 @@ class OOB {
             };
         }
         this.ObjectDiagram.state[finalState]["isFinal"] = true;
+    }
+
+    setFinalStates(finalStates) {
+        finalStates.split(";").forEach((finalState) => {
+            this.setFinalState(finalState);
+        });
     }
 
     get() {
