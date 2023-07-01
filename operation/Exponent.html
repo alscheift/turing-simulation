@@ -98,12 +98,51 @@
             </div>
         </section>
 
+        <section id="input" class="mb-10 mx-4 flex flex-col gap-y-4">
+            <div class="flex gap-x-5">
+                <div class="flex items-end">
+                    <button
+                        id="nextMove-button"
+                        class="px-6 py-3 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
+                        nextMove
+                    </button>
+                </div>
+
+                <div class="flex items-end">
+                    <button
+                        id="play-button"
+                        class="px-6 py-3 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
+                        play
+                    </button>
+                </div>
+
+                <div class="flex items-end">
+                    <button
+                        id="pause-button"
+                        class="px-6 py-3 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
+                        pause
+                    </button>
+                </div>
+            </div>
+        </section>
+
         <main>
             <div class="tape-container flex flex-col mx-2"></div>
         </main>
-        <script>
+        <script type="module" src="../js/OperationObjectBuilder.js"></script>
+        <script type="module" src="../js/Operation/Exponent.js"></script>
+        <script type="module" src="../js/Tape.js"></script>
+        <script type="module" src="../js/Turing.js"></script>
+        <script type="module">
+            import Turing from "../js/Turing.js";
+            import Exponent from "../js/Operation/Exponent.js";
+
+            // T = Turing
+            let T = null;
+            let isPlaying = false;
+
             const cellStyle = {
-                head: "border-red-500 bg-white-600 hover:bg-blue-500 text-red",
+                head: "border-blue-500 bg-red-500 hover:bg-blue-500 text-white",
                 standard:
                     "border-blue-500 bg-blue-600 hover:bg-red-500 text-white",
 
@@ -149,9 +188,27 @@
             const setRawInput = function (rawInputValue, tape) {
                 resetTape(tape);
 
-                for (a = 0; a < rawInputValue.length; a++) {
+                for (let a = 0; a < rawInputValue.length; a++) {
                     addCell(tape, rawInputValue[a]);
                 }
+            };
+
+            const nextMove = function (Tapes) {
+                T.nextMove();
+                const tapes = T.Tapes;
+                tapes.forEach((element) => {
+                    const tape = element.tape;
+                    const head = element.head;
+
+                    resetTape(Tapes[tapes.indexOf(element)]);
+                    for (let i = 0; i < tape.length; i++) {
+                        addCell(
+                            Tapes[tapes.indexOf(element)],
+                            tape[i],
+                            i === head
+                        );
+                    }
+                });
             };
 
             const setInput = function (tape, input) {};
@@ -165,22 +222,26 @@
                 const exponentInput = document.getElementById("input-exponent");
                 const inputBtn = document.getElementById("input-btn");
 
+                // Buttons
+                const nextMoveBtn = document.getElementById("nextMove-button");
+                const playBtn = document.getElementById("play-button");
+                const pauseBtn = document.getElementById("pause-button");
+
                 // Raw Input Form
                 const rawInput = document.getElementById("raw-input");
                 const rawInputBtn = document.getElementById("raw-input-btn");
 
-                const tape1 = addTape(tapeContainer);
-                const tape2 = addTape(tapeContainer);
-                const tape3 = addTape(tapeContainer);
-                const tape4 = addTape(tapeContainer);
+                const Tapes = [];
+                const tapeCount = 3;
 
-                defaultTape(tape1);
-                defaultTape(tape2);
-                defaultTape(tape3);
-                defaultTape(tape4);
+                for (let i = 0; i < tapeCount; i++) {
+                    const tape = addTape(tapeContainer);
+                    Tapes.push(tape);
+                    defaultTape(tape);
+                }
 
                 inputBtn.addEventListener("click", function (event) {
-                    resetTape(tape1);
+                    resetTape(Tapes[0]);
                     const base = baseInput.value;
                     const exponent = exponentInput.value;
 
@@ -190,12 +251,38 @@
                     rawInputValue += "1".repeat(exponent);
                     rawInputValue += "BB";
 
-                    setRawInput(rawInputValue, tape1);
+                    setRawInput(rawInputValue, Tapes[0]);
+
+                    T = new Turing(Exponent, 3, rawInputValue);
                 });
 
                 rawInputBtn.addEventListener("click", function (event) {
-                    setRawInput(rawInput.value, tape1);
+                    setRawInput(rawInput.value, Tapes[0]);
+
+                    T = new Turing(Exponent, 3, rawInput.value);
                 });
+
+                nextMoveBtn.addEventListener("click", function (event) {
+                    nextMove(Tapes);
+                });
+
+                playBtn.addEventListener("click", function (event) {
+                    if (T != null) {
+                        isPlaying = true;
+                    } else {
+                        alert("Please input a value first");
+                    }
+                });
+
+                pauseBtn.addEventListener("click", function (event) {
+                    isPlaying = false;
+                });
+
+                setInterval(function () {
+                    if (isPlaying) {
+                        nextMove(Tapes);
+                    }
+                }, 750);
             });
         </script>
     </body>
