@@ -16,7 +16,7 @@
         <div class="flex flex-col">
             <div class="mx-auto p-5 mb-10 text-center">
                 <h1 class="font-medium">Turing Machine</h1>
-                <h1 class="font-medium">Multiplication</h1>
+                <h1 class="font-medium">Addition</h1>
             </div>
         </div>
         <!-- Back to main index.html -->
@@ -78,7 +78,7 @@
 
                     <input
                         type="text"
-                        placeholder="BB1111X11XB"
+                        placeholder="BB1111X11B"
                         name="raw-input"
                         id="raw-input"
                         class="block mt-2 w-full placeholder-gray-400/70 dark:placeholder-gray-500 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-blue-300" />
@@ -151,12 +151,12 @@
         </main>
         <script type="module" src="../js/cellStyle.js"></script>
         <script type="module" src="../js/OperationObjectBuilder.js"></script>
-        <script type="module" src="../js/Operation/Multiplication.js"></script>
+        <script type="module" src="../js/Operation/Addition.js"></script>
         <script type="module" src="../js/Tape.js"></script>
         <script type="module" src="../js/Turing.js"></script>
         <script type="module">
             import Turing from "../js/Turing.js";
-            import Multiplication from "../js/Operation/Multiplication.js";
+            import Addition from "../js/Operation/Addition.js";
             import cellStyle from "../js/cellStyle.js";
             
             // T = Turing
@@ -257,7 +257,7 @@
                 const rawInputBtn = document.getElementById("raw-input-btn");
 
                 const Tapes = [];
-                const tapeCount = 3;
+                const tapeCount = 2;
 
                 for (let i = 0; i < tapeCount; i++) {
                     const tape = addTape(tapeContainer);
@@ -288,18 +288,17 @@
                     } else {
                         rawInputValue += "";
                     }
-                    rawInputValue += "X";
                     rawInputValue += "BB";
 
                     setRawInput(rawInputValue, Tapes[0]);
 
-                    T = new Turing(Multiplication, 3, rawInputValue);
+                    T = new Turing(Addition, 2, rawInputValue);
                 });
 
                 rawInputBtn.addEventListener("click", function (event) {
                     setRawInput(rawInput.value, Tapes[0]);
 
-                    T = new Turing(Multiplication, 3, rawInput.value);
+                    T = new Turing(Addition, 2, rawInput.value);
                 });
 
                 nextMoveBtn.addEventListener("click", function (event) {
