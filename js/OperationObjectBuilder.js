@@ -28,7 +28,7 @@ class OOB {
             .split(/[\/,]/)
             .map((value) => value.trim())
             .filter((value) => value !== "");
-        console.log(transitionQuery);
+        // console.log(transitionQuery);
         if (!this.ObjectDiagram.state[stateFrom]) {
             this.ObjectDiagram.state[stateFrom] = {
                 transitions: [],

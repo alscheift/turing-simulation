@@ -27,6 +27,8 @@ class Turing {
 
     runUntilFinish() {
         while (this.isFinished === false) {
+            // console.log(this.currentState);
+            // this.printAllTape();
             this.nextMove();
         }
     }
@@ -59,6 +61,9 @@ class Turing {
         if (currentTransitionIndex === -1) {
             // error handling kalau tidak nemu transisi
             console.log("Error: No transition found");
+            this.isFinished = true;
+            console.log(this.currentState, this.readAllTape());
+            this.printAllTape();
         }
 
         // Mendapatkan perubahan tape dan state selanjutnya

@@ -1,0 +1,13 @@
+{
+    "name": "turing-simulation",
+    "version": "1.0.0",
+    "description": "Turing Simulation",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+      "start": "node index.js"
+    },
+    "author": "",
+    "license": "MIT"
+  }
+  

@@ -38,7 +38,7 @@ const Builder = new OOB(
     [q8]EEE/EEE,RSS[q1]
     `
 );
-console.log(Builder.get());
+
 Builder.setFinalState("q10");
 
 const Exponent = Builder.get();
