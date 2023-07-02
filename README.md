@@ -9,6 +9,7 @@ This project is a Turing Machine simulation built using HTML, CSS, and JavaScrip
 - [Dependencies](#dependencies)
 - [Installation](#installation)
 - [Team](#team)
+- [Demo](#demo)
 
 ## Dependencies
 All dependencies already included in the file using CDN
@@ -24,3 +25,5 @@ This project actually doesn't need web server but for security reason it is not 
 - (M0521021) Faiz Fathoni 
 - (M0521026) Hafidh Muhammad Akbar 
 
+## Demo
+This project is live at [Turing-Simulation](https://alscheift.github.io/turing-simulation/)
