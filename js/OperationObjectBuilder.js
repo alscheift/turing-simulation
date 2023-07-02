@@ -68,6 +68,44 @@ class OOB {
         });
     }
 
+    getMermaidDiagram() {
+        let diagram = "stateDiagram-v2\n";
+        let stateTrans = {};
+        for (const state in this.ObjectDiagram.state) {
+            diagram += state + "\n";
+        }
+        for (const state in this.ObjectDiagram.state) {
+            let transitions = this.ObjectDiagram.state[state]["transitions"];
+            transitions.forEach((transition) => {
+                let before = transition["before"].join("");
+                let after = transition["after"].join("");
+                let tapeHeads = transition["tapeHeads"].join("");
+                let nextState = transition["nextState"];
+                let transitionString = `${before}/${after},${tapeHeads}`;
+                if (!stateTrans[state]) {
+                    stateTrans[state] = {};
+                }
+                if (!stateTrans[state][nextState]) {
+                    stateTrans[state][nextState] = [];
+                }
+                stateTrans[state][nextState].push(transitionString);
+            });
+        }
+        // map stateTrans to mermaid diagram
+        for (const state in stateTrans) {
+            for (const nextState in stateTrans[state]) {
+                let transitions = stateTrans[state][nextState];
+                diagram += `${state} --> ${nextState} : `;
+                transitions.forEach((transition) => {
+                    diagram += `${transition}\\n`;
+                });
+                diagram += "\n";
+            }
+        }
+
+        return diagram;
+    }
+
     get() {
         return this.ObjectDiagram;
     }
