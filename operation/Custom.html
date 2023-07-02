@@ -186,14 +186,25 @@
             <hr class="border-black" />
             <div class="tape-container flex flex-col mx-2 mt-3 py-4"></div>
         </main>
+        <pre id="diagram" class="mermaid"></pre>
+        <footer class="mt-10 text-center text-gray-500">
+            <h5>&copy; 2023 Kelompok 3 TBA. All rights reserved.</h5>
+        </footer>
+
         <script type="module" src="../js/cellStyle.js"></script>
         <script type="module" src="../js/OperationObjectBuilder.js"></script>
         <script type="module" src="../js/Tape.js"></script>
         <script type="module" src="../js/Turing.js"></script>
+        <script
+            type="module"
+            src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs"></script>
+
         <script type="module">
             import Turing from "../js/Turing.js";
             import OOB from "../js/OperationObjectBuilder.js";
             import cellStyle from "../js/cellStyle.js";
+            import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+            mermaid.initialize({ startOnLoad: false });
 
             // T = Turing
             let T = null;
@@ -279,6 +290,9 @@
             };
 
             document.addEventListener("DOMContentLoaded", function (event) {
+                // Diagram
+                const myDiagram = document.getElementById("diagram");
+
                 // Create a new <div> element
                 const tapeContainer = document.querySelector(".tape-container");
 
@@ -326,6 +340,13 @@
                         defaultTape(newTape);
                         Tapes.push(newTape);
                     }
+                    document.querySelector(".mermaid").innerHTML =
+                        Builder.getMermaidDiagram();
+
+                    if (myDiagram.hasAttribute("data-processed")) {
+                        myDiagram.removeAttribute("data-processed");
+                    }
+                    mermaid.init();
                 });
 
                 rawInputBtn.addEventListener("click", function (event) {
