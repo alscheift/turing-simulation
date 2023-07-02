@@ -21,13 +21,14 @@
         </div>
         <!-- Back to main index.html -->
         <div class="flex flex-col">
-            <div class="p-4 mb-10 ">
+            <div class="p-4 mb-10">
                 <a
                     href="../index.html"
                     class="px-2 py-1 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-600 rounded-lg hover:bg-indigo-500 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-80">
                     Back to Main
                 </a>
             </div>
+        </div>
         <section id="input" class="mb-10 mx-4 flex flex-col gap-y-4">
             <div class="flex gap-x-5">
                 <div>
@@ -107,17 +108,21 @@
             </div>
         </section>
         <!-- HTML -->
-        
-        <div id="modal" class="z-50 hidden fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center">
+
+        <div
+            id="modal"
+            class="z-50 hidden fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center">
             <div class="bg-white p-6 rounded shadow-lg">
-            <h2 class="text-xl font-bold mb-4">Mesin Selesai 😎</h2>
-            <p></p>
-            <button id="closeModalBtn" class="mt-4 bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
-                Close
-            </button>
+                <h2 class="text-xl font-bold mb-4">Mesin Selesai 😎</h2>
+                <p></p>
+                <button
+                    id="closeModalBtn"
+                    class="mt-4 bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+                    Close
+                </button>
             </div>
         </div>
-  
+
         <section id="input" class="mb-10 mx-4 flex flex-col gap-y-4">
             <div class="flex gap-x-5">
                 <div class="flex items-end">
@@ -159,10 +164,9 @@
                         Reset
                     </button>
                 </div>
-                
             </div>
         </section>
-            
+
         <main>
             <div class="tape-container flex flex-col mx-2"></div>
         </main>
@@ -175,11 +179,10 @@
             import Turing from "../js/Turing.js";
             import Exponent from "../js/Operation/Exponent.js";
             import cellStyle from "../js/cellStyle.js";
-           
+
             // T = Turing
             let T = null;
             let isPlaying = false;
-
 
             let openModalBtn;
             let closeModalBtn;
@@ -190,7 +193,7 @@
                 modal.classList.remove("hidden");
             }
 
-                // Function to close the modal
+            // Function to close the modal
             function closeModal() {
                 modal.classList.add("hidden");
             }
@@ -233,7 +236,7 @@
                 }
             };
 
-            const renderTape = function(Tapes){
+            const renderTape = function (Tapes) {
                 const tapes = T.Tapes;
                 tapes.forEach((element) => {
                     const tape = element.tape;
@@ -248,11 +251,11 @@
                         );
                     }
                 });
-                if(T.isFinished){
+                if (T.isFinished) {
                     isPlaying = false;
                     openModal();
                 }
-            }
+            };
 
             const nextMove = function (Tapes) {
                 T.nextMove();
@@ -273,7 +276,9 @@
                 const playBtn = document.getElementById("play-button");
                 const pauseBtn = document.getElementById("pause-button");
                 const resetButton = document.getElementById("reset-button");
-                const runUntilFinishButton = document.getElementById("run-until-finish-button");
+                const runUntilFinishButton = document.getElementById(
+                    "run-until-finish-button"
+                );
 
                 // Raw Input Form
                 const rawInput = document.getElementById("raw-input");
@@ -330,25 +335,27 @@
 
                 resetButton.addEventListener("click", function (event) {
                     if (T != null) {
-                        T= null;
+                        T = null;
                         isPlaying = false;
-                      Tapes.forEach((tape) => {
-                        
-                        defaultTape(tape);
-                      });  
-                    } 
-                });
-
-                runUntilFinishButton.addEventListener("click", function (event) {
-                    if (T != null) {
-                        isPlaying = true;
-                        T.runUntilFinish();
-                        renderTape(Tapes);
-                        isPlaying = false;
-                    } else {
-                        alert("Please input a value first");
+                        Tapes.forEach((tape) => {
+                            defaultTape(tape);
+                        });
                     }
                 });
+
+                runUntilFinishButton.addEventListener(
+                    "click",
+                    function (event) {
+                        if (T != null) {
+                            isPlaying = true;
+                            T.runUntilFinish();
+                            renderTape(Tapes);
+                            isPlaying = false;
+                        } else {
+                            alert("Please input a value first");
+                        }
+                    }
+                );
 
                 setInterval(function () {
                     if (isPlaying) {
@@ -360,9 +367,6 @@
                 openModalBtn = document.getElementById("openModalBtn");
                 closeModalBtn = document.getElementById("closeModalBtn");
                 modal = document.getElementById("modal");
-
-                
-                
 
                 // Event listener for closing the modal
                 closeModalBtn.addEventListener("click", closeModal);
