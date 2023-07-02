@@ -56,11 +56,12 @@
                     </button>
                 </div>
             </div>
+            <p id="output-text" class="block dark:text-gray-500 font-medium"></p>
         </section>
         <div id="modal" class="z-50 hidden fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center">
             <div class="bg-white p-6 rounded shadow-lg flex flex-col items-center">
                 <h2 class="text-xl font-bold mb-3">Mesin Selesai 😎</h2>
-                <p></p>
+                <p id="modal-output" class="font-medium"></p>
                 <button id="closeModalBtn" class="mt-4 bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
                     Close
                 </button>
@@ -123,8 +124,9 @@
             let modal;
 
             // Function to open the modal
-            function openModal() {
+            function openModal(outputNumber) {
                 modal.classList.remove("hidden");
+                document.getElementById("modal-output").innerHTML = "Output: " + outputNumber;
             }
 
                 // Function to close the modal
@@ -187,7 +189,18 @@
                 });
                 if(T.isFinished){
                     isPlaying = false;
-                    openModal();
+                    const lastTape = tapes[tapes.length - 1].tape;
+                    const outputText = document.getElementById("output-text");
+                    let outputNumber = 0;
+                    for (let i = 0; i < lastTape.length; i++) {
+                        if (lastTape[i] === "1") {
+                            outputNumber++;
+                        } else if (lastTape[i] === "0") {
+                            outputNumber--;
+                        }
+                    }
+                    outputText.innerHTML = "Output: " + outputNumber;
+                    openModal(outputNumber);
                 }
             }
 
@@ -286,6 +299,8 @@
                       Tapes.forEach((tape) => {
                         
                         defaultTape(tape);
+                        const outputText = document.getElementById("output-text");
+                        outputText.innerHTML = "";
                       });  
                     } 
                 });
