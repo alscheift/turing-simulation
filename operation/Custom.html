@@ -12,37 +12,46 @@
         <!-- Custom CSS -->
         <link rel="stylesheet" href="../css/scrollbar.css" />
     </head>
-    <body>
+    <body class="mx-4 my-5 bg-gray-100 dark:bg-gray-900">
         <div class="flex flex-col">
-            <div class="mx-auto p-5 mb-10 text-center">
-                <h1 class="font-medium">Turing Machine</h1>
-                <h1 class="font-medium">Custom</h1>
+            <div class="text-center mb-3">
+                <h1 class="font-semibold text-2xl">Turing Machine</h1>
+                <h1 class="font-semibold text-2xl">Custom</h1>
             </div>
         </div>
         <!-- Back to main index.html -->
-        <div class="flex flex-col">
-            <div class="p-4 mb-10 ">
+        <div class="flex flex-col justify-center items-center mb-4">
+            <div class="p-4 mb-10">
                 <a
                     href="../index.html"
-                    class="px-2 py-1 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-600 rounded-lg hover:bg-indigo-500 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-80">
+                    class="px-4 py-2 mt-4 font-normal tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-600 rounded-lg hover:bg-indigo-500 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-80">
                     Back to Main
                 </a>
             </div>
-        <section id="input" class="mb-10 mx-4 flex flex-col gap-y-4">
+        </div>
+        <section id="input" class="mb-4 mx-4 flex flex-col gap-y-4">
             <div class="flex gap-x-5">
                 <div>
-                    <label for="Transition-state" class="block text-sm text-gray-500 dark:text-gray-300">Transition-state</label>
-                    
-                    <textarea name="transition-state" id="transition-state" cols="57" placeholder="[q1]1BB/EBB,RRS[q2];&#10;[q2]EBB/BBB,LLS[q3]&#10;....&#10;Separate with semi-colon ;" class="block  mt-2 w-full  placeholder-gray-400/70 dark:placeholder-gray-500 rounded-lg border border-gray-200 bg-white px-4 h-32 py-2.5 text-gray-700 focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-indigo-300"></textarea>
-                </div>
+                    <label
+                        for="Transition-state"
+                        class="block dark:text-gray-600 font-medium"
+                        >Transition-state</label
+                    >
 
+                    <textarea
+                        name="transition-state"
+                        id="transition-state"
+                        cols="57"
+                        placeholder="[q1]1BB/EBB,RRS[q2];&#10;[q2]EBB/BBB,LLS[q3]&#10;....&#10;Separate with semi-colon ;"
+                        class="block mt-2 w-full placeholder-gray-400/70 dark:placeholder-gray-500 rounded-lg border border-gray-200 bg-white px-4 h-32 py-2.5 text-gray-700 focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-indigo-300"></textarea>
+                </div>
             </div>
 
             <div class="flex gap-x-5">
                 <div>
                     <label
                         for="Transition-state"
-                        class="block text-sm text-gray-500 dark:text-gray-300"
+                        class="block dark:text-gray-600 font-medium"
                         >Final-state</label
                     >
 
@@ -70,17 +79,16 @@
                 <div class="flex items-end">
                     <button
                         id="custom-input-button"
-                        class="px-6 py-3 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-indigo-600 rounded-lg hover:bg-indigo-500 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-80">
+                        class="px-4 py-2 mt-8 font-normal tracking-wide text-white capitalize transition-colors duration-300 transform bg-indigo-600 rounded-lg hover:bg-indigo-500 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-80">
                         Set
                     </button>
                 </div>
-                
             </div>
             <div class="flex gap-x-5">
                 <div>
                     <label
                         for="raw-input"
-                        class="block text-sm text-gray-500 dark:text-gray-300"
+                        class="block dark:text-gray-600 font-medium"
                         >Raw Input</label
                     >
 
@@ -108,30 +116,34 @@
                 <div class="flex items-end">
                     <button
                         id="raw-input-button"
-                        class="px-6 py-3 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-indigo-600 rounded-lg hover:bg-indigo-500 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-80">
+                        class="px-4 py-2 mt-8 font-normal tracking-wide text-white capitalize transition-colors duration-300 transform bg-indigo-600 rounded-lg hover:bg-indigo-500 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-80">
                         Set
                     </button>
                 </div>
             </div>
         </section>
         <!-- HTML -->
-        
-        <div id="modal" class="z-50 hidden fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center">
+
+        <div
+            id="modal"
+            class="z-50 hidden fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center">
             <div class="bg-white p-6 rounded shadow-lg">
-            <h2 class="text-xl font-bold mb-4">Mesin Selesai 😎</h2>
-            <p></p>
-            <button id="closeModalBtn" class="mt-4 bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
-                Close
-            </button>
+                <h2 class="text-xl font-bold mb-4">Mesin Selesai 😎</h2>
+                <p></p>
+                <button
+                    id="closeModalBtn"
+                    class="mt-4 bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+                    Close
+                </button>
             </div>
         </div>
-  
+
         <section id="input" class="mb-10 mx-4 flex flex-col gap-y-4">
             <div class="flex gap-x-5">
                 <div class="flex items-end">
                     <button
                         id="nextMove-button"
-                        class="px-6 py-3 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-indigo-600 rounded-lg hover:bg-indigo-500 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-80">
+                        class="px-4 py-2 mt-8 font-normal tracking-wide text-white capitalize transition-colors duration-300 transform bg-indigo-600 rounded-lg hover:bg-indigo-500 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-80">
                         nextMove
                     </button>
                 </div>
@@ -139,7 +151,7 @@
                 <div class="flex items-end">
                     <button
                         id="play-button"
-                        class="px-6 py-3 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-indigo-600 rounded-lg hover:bg-indigo-500 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-80">
+                        class="px-4 py-2 mt-8 font-normal tracking-wide text-white capitalize transition-colors duration-300 transform bg-indigo-600 rounded-lg hover:bg-indigo-500 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-80">
                         play
                     </button>
                 </div>
@@ -147,16 +159,15 @@
                 <div class="flex items-end">
                     <button
                         id="pause-button"
-                        class="px-6 py-3 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-indigo-600 rounded-lg hover:bg-indigo-500 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-80">
+                        class="px-4 py-2 mt-8 font-normal tracking-wide text-white capitalize transition-colors duration-300 transform bg-indigo-600 rounded-lg hover:bg-indigo-500 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-80">
                         pause
                     </button>
                 </div>
 
-                
                 <div class="flex items-end">
                     <button
                         id="run-until-finish-button"
-                        class="px-6 py-3 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-indigo-600 rounded-lg hover:bg-indigo-500 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-80">
+                        class="px-4 py-2 mt-8 font-normal tracking-wide text-white capitalize transition-colors duration-300 transform bg-indigo-600 rounded-lg hover:bg-indigo-500 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-80">
                         Finish
                     </button>
                 </div>
@@ -164,16 +175,16 @@
                 <div class="flex items-end">
                     <button
                         id="reset-button"
-                        class="px-6 py-3 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-indigo-600 rounded-lg hover:bg-indigo-500 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-80">
+                        class="px-4 py-2 mt-8 font-normal tracking-wide text-white capitalize transition-colors duration-300 transform bg-indigo-600 rounded-lg hover:bg-indigo-500 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-80">
                         Reset
                     </button>
                 </div>
-                
             </div>
         </section>
-            
+
         <main>
-            <div class="tape-container flex flex-col mx-2"></div>
+            <hr class="border-black" />
+            <div class="tape-container flex flex-col mx-2 mt-3 py-4"></div>
         </main>
         <script type="module" src="../js/cellStyle.js"></script>
         <script type="module" src="../js/OperationObjectBuilder.js"></script>
@@ -183,12 +194,11 @@
             import Turing from "../js/Turing.js";
             import OOB from "../js/OperationObjectBuilder.js";
             import cellStyle from "../js/cellStyle.js";
-           
+
             // T = Turing
             let T = null;
             let Operation = null;
             let isPlaying = false;
-
 
             let openModalBtn;
             let closeModalBtn;
@@ -199,7 +209,7 @@
                 modal.classList.remove("hidden");
             }
 
-                // Function to close the modal
+            // Function to close the modal
             function closeModal() {
                 modal.classList.add("hidden");
             }
@@ -242,7 +252,7 @@
                 }
             };
 
-            const renderTape = function(Tapes){
+            const renderTape = function (Tapes) {
                 const tapes = T.Tapes;
                 tapes.forEach((element) => {
                     const tape = element.tape;
@@ -257,38 +267,41 @@
                         );
                     }
                 });
-                if(T.isFinished){
+                if (T.isFinished) {
                     isPlaying = false;
                     openModal();
                 }
-            }
+            };
 
             const nextMove = function (Tapes) {
                 T.nextMove();
                 renderTape(Tapes);
             };
-            
+
             document.addEventListener("DOMContentLoaded", function (event) {
                 // Create a new <div> element
                 const tapeContainer = document.querySelector(".tape-container");
 
                 // Custom Input Form
-                const transitionState = document.getElementById("transition-state");
+                const transitionState =
+                    document.getElementById("transition-state");
                 const finalState = document.getElementById("final-state");
-                const customButton = document.getElementById("custom-input-button");
-                
+                const customButton = document.getElementById(
+                    "custom-input-button"
+                );
+
                 // Raw input
                 const rawInputBtn = document.getElementById("raw-input-button");
                 const rawInput = document.getElementById("raw-input");
-                
 
                 // Buttons
                 const nextMoveBtn = document.getElementById("nextMove-button");
                 const playBtn = document.getElementById("play-button");
                 const pauseBtn = document.getElementById("pause-button");
                 const resetButton = document.getElementById("reset-button");
-                const runUntilFinishButton = document.getElementById("run-until-finish-button");
-
+                const runUntilFinishButton = document.getElementById(
+                    "run-until-finish-button"
+                );
 
                 let Tapes = [];
 
@@ -315,7 +328,6 @@
                     }
                 });
 
-
                 rawInputBtn.addEventListener("click", function (event) {
                     setRawInput(rawInput.value, Tapes[0]);
 
@@ -341,25 +353,27 @@
 
                 resetButton.addEventListener("click", function (event) {
                     if (T != null) {
-                        T= null;
+                        T = null;
                         isPlaying = false;
-                      Tapes.forEach((tape) => {
-                        
-                        defaultTape(tape);
-                      });  
-                    } 
-                });
-
-                runUntilFinishButton.addEventListener("click", function (event) {
-                    if (T != null) {
-                        isPlaying = true;
-                        T.runUntilFinish();
-                        renderTape(Tapes);
-                        isPlaying = false;
-                    } else {
-                        alert("Please input a value first");
+                        Tapes.forEach((tape) => {
+                            defaultTape(tape);
+                        });
                     }
                 });
+
+                runUntilFinishButton.addEventListener(
+                    "click",
+                    function (event) {
+                        if (T != null) {
+                            isPlaying = true;
+                            T.runUntilFinish();
+                            renderTape(Tapes);
+                            isPlaying = false;
+                        } else {
+                            alert("Please input a value first");
+                        }
+                    }
+                );
 
                 setInterval(function () {
                     if (isPlaying) {
@@ -371,9 +385,6 @@
                 openModalBtn = document.getElementById("openModalBtn");
                 closeModalBtn = document.getElementById("closeModalBtn");
                 modal = document.getElementById("modal");
-
-                
-                
 
                 // Event listener for closing the modal
                 closeModalBtn.addEventListener("click", closeModal);
